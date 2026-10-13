@@ -26,7 +26,7 @@ Back to the [list of all labs](../README.md).
 
 - **HTML5** (semantic markup, ARIA roles and attributes)
 - **CSS3** (custom properties, Grid, Flexbox, responsive media queries)
-- **JavaScript (ES6+)** — vanilla, no dependencies
+- **JavaScript** — vanilla, no dependencies
 - **Google Fonts** — Unbounded (headings) and Onest (text and interface)
 - **GitHub Pages** (hosting)
 
