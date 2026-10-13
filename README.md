@@ -24,7 +24,7 @@ New labs are added to this table as they are completed.
 
 - **HTML5** (semantic markup, ARIA)
 - **CSS3** (custom properties, Grid, Flexbox)
-- **JavaScript (ES6+)** — vanilla, no frameworks
+- **JavaScript** — vanilla, no frameworks
 - **Google Fonts** — Unbounded and Onest
 - **GitHub Pages** (hosting)
 
