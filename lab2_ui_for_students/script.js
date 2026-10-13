@@ -1,11 +1,11 @@
-/* Інтерактивність для 10 елементів інтерфейсу */
+/* Інтерактивність для 10 елементів інтерфейсу*/
 (() => {
   "use strict";
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
-  // Виводить рядок - текст <жирне значення>
+  // Виводить рядок "текст <жирне значення>" без innerHTML
   function readout(el, text, strong = "") {
     el.textContent = text;
     if (strong) {
@@ -16,12 +16,12 @@
     }
   }
 
-  /* Посилання "До списку лабораторних" 
-     Працює лише в структурі репозиторію: корінь/index.html (список) і
-     корінь/lab1/index.html (ця сторінка). Якщо файли лежать в іншій папці
-     (наприклад, усі три в одній), ../index.html веде не на список, а на саму
-     цю сторінку або в нікуди, і такі посилання сховані.
-     Посилання видно лише коли назва папки починається з lab<номер>_, наприклад lab1_ui_elements, lab2 */
+  /* ---------- Посилання "До списку лабораторних" ----------
+     Воно працює лише в структурі репозиторію: корінь/index.html (список) і
+     корінь/lab1/index.html (ця сторінка). 
+     Посилання видно, лише коли назва папки починається з lab<номер>_ і далі
+     йде будь-яка назва, наприклад lab1_ui_elements, lab2_forms, lab10_dashboard.
+     Просто lab1 (без назви після номера) теж підходить. */
   const folderName = decodeURIComponent(
     location.pathname.replace(/index\.html$/, "").split("/").filter(Boolean).pop() || ""
   );
@@ -30,31 +30,6 @@
       (link.closest("footer p") || link).hidden = true;
     });
   }
-
-  /* ---------- Підсвітка за курсором на демо-панелях ---------- */
-  $$(".stage").forEach((stage) => {
-    stage.addEventListener("pointermove", (e) => {
-      const r = stage.getBoundingClientRect();
-      stage.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      stage.style.setProperty("--my", `${e.clientY - r.top}px`);
-    });
-  });
-
-  /* ---------- Активний пункт у навігації ---------- */
-  const navLinks = $$(".rail a");
-  const navMap = new Map(navLinks.map((a) => [a.getAttribute("href").slice(1), a]));
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach((l) => l.removeAttribute("aria-current"));
-        const link = navMap.get(entry.target.id);
-        if (link) link.setAttribute("aria-current", "true");
-      });
-    },
-    { rootMargin: "-35% 0px -55% 0px" }
-  );
-  $$(".entry").forEach((section) => observer.observe(section));
 
   /* ---------- 1. Radiobutton ---------- */
   const radios = $$('input[name="delivery"]');
@@ -74,12 +49,7 @@
   function renderChecks() {
     const count = channels.filter((c) => c.checked).length;
     master.checked = count === channels.length;
-    master.indeterminate = count > 0 && count < channels.length;
     readout(checkOut, "Увімкнено каналів:", `${count} з ${channels.length}`);
-    
-    if (master.indeterminate) {
-      checkOut.append('. Риска біля "Усі канали" означає стан "частково": позначено не всі пункти.');
-    }
   }
   master.addEventListener("change", () => {
     channels.forEach((c) => (c.checked = master.checked));
@@ -149,31 +119,6 @@
         }
       });
     });
-
-    // Стрілки <- та -> працюють і тоді, коли на вкладки лише наведено курсор (без кліку)
-    // Якщо фокус уже на вкладці, спрацьовує обробник вище
-    // у текстових полях стрілки не перехоплюємо
-    let hovered = false;
-    root.addEventListener("mouseenter", () => (hovered = true));
-    root.addEventListener("mouseleave", () => (hovered = false));
-    document.addEventListener("keydown", (e) => {
-      if (!hovered || e.defaultPrevented) return;
-      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-      const active = document.activeElement;
-      if (root.contains(active)) return;
-      const typing =
-        active &&
-        (active.isContentEditable ||
-          active.matches(
-            "textarea, input:not([type='radio']):not([type='checkbox']):not([type='button']):not([type='submit']):not([type='reset'])"
-          ));
-      if (typing) return;
-
-      const current = tabs.findIndex((t) => t.getAttribute("aria-selected") === "true");
-      const step = e.key === "ArrowRight" ? 1 : -1;
-      e.preventDefault();
-      select((current + step + tabs.length) % tabs.length, true);
-    });
   });
 
   /* ---------- 5. Button ---------- */
@@ -206,27 +151,12 @@
     wrap.addEventListener("focusout", reset);
   });
 
-  // Esc закриває підказку, яка зараз показана, навіть якщо до неї лише наведено курсор
+  // Esc закриває підказку, яка зараз показана (при наведенні курсору або фокусі)
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
     $$(".tip-wrap").forEach((wrap) => {
       if (wrap.matches(":hover, :focus-within")) wrap.classList.add("dismissed");
     });
-  });
-
-  const copyBtn = $("#copy-btn");
-  const copyTip = $("#tip-copy");
-  const copyDefault = copyTip.textContent;
-  let copyTimer;
-  copyBtn.addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(location.href);
-      copyTip.textContent = "Адресу скопійовано";
-    } catch {
-      copyTip.textContent = "Не вдалося скопіювати, виділіть адресу вручну";
-    }
-    clearTimeout(copyTimer);
-    copyTimer = setTimeout(() => (copyTip.textContent = copyDefault), 2200);
   });
 
   /* ---------- 9. Dropdown list ---------- */

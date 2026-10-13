@@ -1,9 +1,3 @@
-/* =========================================================
-   Елементи інтерфейсу — темна тема
-   Палітра: нічний синій фон, холодний платиновий текст, блакитний акцент
-   Шрифти: Unbounded (заголовки), Onest (текст і інтерфейс)
-   ========================================================= */
-
 :root {
   --bg: #070a12;
   --bg-raised: #0b101b;
@@ -33,7 +27,7 @@
   color-scheme: dark;
 }
 
-/* ---------- База ---------- */
+
 
 *,
 *::before,
@@ -143,7 +137,7 @@ output { display: block; }
 }
 
 /* Посилання на головну сторінку зі списком лабораторних.
-   Селектор .rail a.back сильніший за .rail a, тому нумерація тут не додається. */
+   Селектор .rail a.back сильніший за .rail a, тому нумерація тут не додається */
 .rail a.back {
   display: inline-block;
   margin-top: 14px;
@@ -182,8 +176,6 @@ output { display: block; }
   transition: color 0.2s;
 }
 .rail a:hover { color: var(--text); }
-.rail a[aria-current] { color: var(--text); }
-.rail a[aria-current]::before { color: var(--accent); }
 
 main {
   min-width: 0;
@@ -267,8 +259,6 @@ main {
 /* ---------- Демонстраційна панель ---------- */
 
 .stage {
-  --mx: 50%;
-  --my: 0%;
   position: relative;
   isolation: isolate;
   align-self: start;
@@ -277,18 +267,6 @@ main {
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
 }
-.stage::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  background: radial-gradient(340px circle at var(--mx) var(--my), rgba(108, 180, 255, 0.1), transparent 70%);
-  opacity: 0;
-  transition: opacity 0.35s;
-  pointer-events: none;
-}
-.stage:hover::before { opacity: 1; }
 
 .stage-tip { padding-top: 96px; }
 
@@ -359,8 +337,7 @@ label,
   transition: border-color 0.2s, background 0.2s;
 }
 .choice:hover { border-color: #2c3a55; }
-.choice:has(input:checked),
-.choice:has(input:indeterminate) {
+.choice:has(input:checked) {
   border-color: rgba(108, 180, 255, 0.55);
   background: rgba(108, 180, 255, 0.05);
 }
@@ -421,17 +398,6 @@ label,
 }
 .choice input:checked + .mark-check::after {
   transform: translateY(-1px) rotate(45deg) scale(1);
-}
-/* стан «частково» — має йти після :checked */
-.choice input:indeterminate + .mark-check {
-  background: var(--accent);
-  border-color: var(--accent);
-}
-.choice input:indeterminate + .mark-check::after {
-  width: 10px;
-  height: 0;
-  border-width: 0 0 2px 0;
-  transform: none;
 }
 
 /* ---------- Вкладки ---------- */
@@ -518,7 +484,7 @@ label,
 .is-loading .spinner { display: inline-block; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ---------- Мітки: порівняння ---------- */
+
 
 .compare { display: grid; gap: 28px; }
 .fake-label { color: var(--text); }
@@ -687,7 +653,7 @@ th[aria-sort="descending"] .sort-mark::before { content: "↓"; color: var(--acc
 .pill[data-level="2"] { color: var(--accent-hi); border-color: rgba(108, 180, 255, 0.5); }
 .pill[data-level="3"] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
 
-/* ---------- Підвал ---------- */
+/* ---------- FOOTER ---------- */
 
 .foot {
   margin-top: 24px;

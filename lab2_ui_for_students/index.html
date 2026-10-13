@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Лабораторна 2. UI for students</title>
+  <title>Лабораторна 1. Елементи інтерфейсу</title>
   <meta name="description" content="Десять базових елементів вебінтерфейсу: призначення, правила використання та робочі приклади.">
   <meta name="author" content="Марія Степанова">
   <meta name="theme-color" content="#070a12">
@@ -25,7 +25,7 @@
       <p class="brand">Каталог UI</p>
       <p class="byline">Марія Степанова</p>
       <a class="back" href="../index.html" data-labs-link>До списку лабораторних</a>
-      <nav aria-label="UI for students">
+      <nav aria-label="Елементи інтерфейсу">
         <ol>
           <li><a href="#radio">Radiobutton</a></li>
           <li><a href="#checkbox">Checkbox</a></li>
@@ -44,7 +44,7 @@
     <main id="main">
 
       <header class="hero" id="top">
-        <h1>UI for students</h1>
+        <h1>Елементи інтерфейсу</h1>
         <p>Десять компонентів, з яких складається майже кожен вебсайт. Для кожного з них нижче сказано, що він робить і коли його варто використати, а поруч є живий приклад: натискайте, вводьте й обирайте просто на сторінці.</p>
       </header>
 
@@ -86,7 +86,6 @@
               <span class="choice-meta">сьогодні</span>
             </label>
           </fieldset>
-          
           <output class="readout" id="radio-out"></output>
         </div>
       </section>
@@ -95,7 +94,7 @@
       <section class="entry" id="checkbox" aria-labelledby="checkbox-title">
         <div class="entry-text">
           <h2 id="checkbox-title">Checkbox<span class="ua">Прапорець</span></h2>
-          <p class="lede">Вмикає або вимикає окремий параметр незалежно від інших. Можна позначити кілька пунктів, жоден або всі одразу. Стан "частково" показує, що позначено лише частину вкладених пунктів.</p>
+          <p class="lede">Вмикає або вимикає окремий параметр незалежно від інших. Можна позначити кілька пунктів, жоден або всі одразу. Чекбокс «Усі канали» позначає або знімає всі пункти одразу.</p>
           <dl class="facts">
             <div>
               <dt>Коли застосовувати</dt>
@@ -103,12 +102,10 @@
             </div>
             <div>
               <dt>Розмітка</dt>
-              <dd><code>&lt;input type="checkbox"&gt;</code>. Стан "частково" задається у JavaScript властивістю <code>indeterminate</code>.</dd>
+              <dd><code>&lt;input type="checkbox"&gt;</code>. Позначений стан перевіряє властивість <code>checked</code>.</dd>
             </div>
-
           </dl>
         </div>
-
         <div class="stage">
           <fieldset class="group">
             <legend>Сповіщення</legend>
@@ -153,7 +150,6 @@
             </div>
           </dl>
         </div>
-        
         <div class="stage">
           <div class="field">
             <label for="email">Електронна пошта</label>
@@ -161,7 +157,6 @@
             <p class="hint" id="email-hint" aria-live="polite">Введіть адресу й вийдіть із поля: перевірка спрацює одразу.</p>
           </div>
         </div>
-
       </section>
 
       <!-- 4. Tabs -->
@@ -180,7 +175,6 @@
             </div>
           </dl>
         </div>
-
         <div class="stage">
           <div class="tabs">
             <div role="tablist" aria-label="Про вкладки">
@@ -188,7 +182,6 @@
               <button type="button" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">Приклад</button>
               <button type="button" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">Клавіатура</button>
             </div>
-
             <div role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
               <p>Вкладки заощаджують місце: замість однієї довгої сторінки є кілька коротких розділів, між якими легко перемикатися.</p>
             </div>
@@ -196,12 +189,11 @@
               <p>Типовий приклад: картка товару з розділами "Опис", "Характеристики" та "Відгуки".</p>
             </div>
             <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
-              <p>Стрілки ← та → перемикають вкладки: достатньо навести на них курсор або перейти до них клавішею Tab. Home і End переходять до першої й останньої вкладки.</p>
+              <p>Перейдіть до вкладок клавішею Tab, далі стрілки ← та → перемикають вкладки. Home і End переходять до першої й останньої вкладки.</p>
             </div>
           </div>
-          <p class="inline-demo">Наведіть курсор на вкладки й керуйте стрілками ← та → без кліку, або перейдіть до них клавішею Tab.</p>
+          <p class="inline-demo">Клацніть по вкладці або перейдіть до неї клавішею Tab, а потім перемикайте стрілками ← та →.</p>
         </div>
-
       </section>
 
       <!-- 5. Button -->
@@ -220,7 +212,6 @@
             </div>
           </dl>
         </div>
-
         <div class="stage">
           <div class="btn-row">
             <button type="button" class="btn btn-primary" id="btn-save"><span class="spinner" aria-hidden="true"></span><span id="btn-save-text">Зберегти</span></button>
@@ -248,7 +239,6 @@
             </div>
           </dl>
         </div>
-
         <div class="stage">
           <div class="compare">
             <div class="field">
@@ -281,7 +271,6 @@
             </div>
           </dl>
         </div>
-
         <div class="stage">
           <ul class="links">
             <li>
@@ -313,7 +302,6 @@
             </div>
           </dl>
         </div>
-
         <div class="stage stage-tip">
           <div class="tip-demo">
             <span class="tip-wrap">
@@ -321,10 +309,10 @@
               <span class="tip" role="tooltip" id="tip-cvv">Три цифри на звороті картки. Нікому їх не повідомляйте.</span>
             </span>
             <span class="tip-wrap tip-end">
-              <button type="button" class="icon-btn" id="copy-btn" aria-label="Копіювати адресу сторінки" aria-describedby="tip-copy">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+              <button type="button" class="icon-btn" aria-label="Довідка" aria-describedby="tip-help">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
               </button>
-              <span class="tip" role="tooltip" id="tip-copy">Копіює адресу цієї сторінки в буфер обміну</span>
+              <span class="tip" role="tooltip" id="tip-help">Підказка з’являється і при наведенні курсора, і при фокусі з клавіатури</span>
             </span>
           </div>
           <p class="hint">Наведіть курсор або перейдіть до елементів клавішею Tab. Esc закриває підказку.</p>
@@ -347,7 +335,6 @@
             </div>
           </dl>
         </div>
-
         <div class="stage">
           <div class="field">
             <label for="course">Напрям навчання</label>
@@ -379,7 +366,6 @@
             </div>
           </dl>
         </div>
-        
         <div class="stage">
           <div class="grid-tools">
             <div class="field grid-filter">
@@ -406,7 +392,7 @@
       </section>
 
       <footer class="foot">
-        <p>Лабораторна робота 2 з курсу QC Fundamentals</p>
+        <p>Лабораторна робота 1 з курсу QC Fundamentals</p>
         <p>Виконала: <strong>Марія Степанова</strong></p>
         <p><a href="../index.html" data-labs-link>Усі лабораторні роботи</a></p>
       </footer>
