@@ -1,15 +1,15 @@
-# Lab 1 — UI Elements Catalog
+# Lab 2 — UI for students
 
 [![HTML5](https://img.shields.io/badge/HTML-HTML5-orange)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS-CSS3-blue)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Interactive web page presenting ten core user interface elements, with an explanation of the purpose of each one and a working example. Developed as the first lab work for the "UI/UX design" course (Software Engineering, Igor Sikorsky Kyiv Polytechnic Institute, 2026).
+Interactive web page presenting ten core user interface elements, with an explanation of the purpose of each one and a working example. Developed as the second lab work for the "QC Fundamentals" course (Software Engineering, Igor Sikorsky Kyiv Polytechnic Institute, 2026).
 
 The page is written in Ukrainian and covers the following elements: radiobutton, checkbox, text input, tabs, button, text label, link, tooltip, dropdown list, and data grid. Each section explains what the element does, when it should (and should not) be used, and which HTML markup implements it. Every example is fully functional, so the element can be clicked, typed into, and navigated with the keyboard right on the page.
 
-**Live demo:** [https://mnjmaria.github.io/ui-ux-labs/lab1/](https://mnjmaria.github.io/ui-ux-labs/lab1/)
+**Live demo:** [https://mnjmaria.github.io/qc_fundamentals_labs/lab2_ui_for_students/](https://mnjmaria.github.io/qc_fundamentals_labs/lab2_ui_for_students/)
 
 Back to the [list of all labs](../README.md).
 
@@ -55,7 +55,7 @@ Back to the [list of all labs](../README.md).
 ## Folder Structure
 
 ```text
-lab1/
+lab2_ui_for_students/
 ├── index.html   # Page markup and descriptions of all 10 elements
 ├── style.css    # Dark theme, layout, styles of every component
 ├── script.js    # Interactivity: validation, tabs, tooltips, data grid
