@@ -103,20 +103,6 @@ The focus was on making every example a real, working component instead of a sta
 - Add automated accessibility and end-to-end tests
 - Make tooltips dismissible and hoverable according to WCAG 1.4.13
 
-## Screenshots
-
-<img src="screenshots/overview.png" width="80%">
-<p><em>Page overview with side navigation</em></p>
-
-<img src="screenshots/form-elements.png" width="70%">
-<p><em>Radiobutton, checkbox, and text input examples</em></p>
-
-<img src="screenshots/data-grid.png" width="80%">
-<p><em>Data grid with sorting and filtering</em></p>
-
-<img src="screenshots/mobile.png" width="35%">
-<p><em>Mobile layout</em></p>
-
 ---
 
 ## License
