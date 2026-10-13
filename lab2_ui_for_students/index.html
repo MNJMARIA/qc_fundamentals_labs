@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лабораторна 2. UI for students</title>
+  <meta name="description" content="Десять базових елементів вебінтерфейсу: призначення, правила використання та робочі приклади.">
+  <meta name="author" content="Марія Степанова">
+  <meta name="theme-color" content="#070a12">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти до змісту</a>
+
+  <div class="shell">
+
+    <!-- Бічна навігація -->
+    <aside class="rail">
+      <p class="brand">Каталог UI</p>
+      <p class="byline">Марія Степанова</p>
+      <a class="back" href="../index.html" data-labs-link>До списку лабораторних</a>
+      <nav aria-label="UI for students">
+        <ol>
+          <li><a href="#radio">Radiobutton</a></li>
+          <li><a href="#checkbox">Checkbox</a></li>
+          <li><a href="#input">Text input</a></li>
+          <li><a href="#tabs">Tabs</a></li>
+          <li><a href="#button">Button</a></li>
+          <li><a href="#label">Text label</a></li>
+          <li><a href="#link">Link</a></li>
+          <li><a href="#tooltip">Tooltip</a></li>
+          <li><a href="#dropdown">Dropdown list</a></li>
+          <li><a href="#grid">Data grid</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <main id="main">
+
+      <header class="hero" id="top">
+        <h1>UI for students</h1>
+        <p>Десять компонентів, з яких складається майже кожен вебсайт. Для кожного з них нижче сказано, що він робить і коли його варто використати, а поруч є живий приклад: натискайте, вводьте й обирайте просто на сторінці.</p>
+      </header>
+
+      <!-- 1. Radiobutton -->
+      <section class="entry" id="radio" aria-labelledby="radio-title">
+        <div class="entry-text">
+          <h2 id="radio-title">Radiobutton<span class="ua">Перемикач</span></h2>
+          <p class="lede">Дає змогу обрати рівно один варіант із невеликої групи. Усі варіанти видно одразу, тому їх легко порівняти без зайвих кліків, а вибір нового автоматично скасовує попередній.</p>
+          <dl class="facts">
+            <div>
+              <dt>Коли застосовувати</dt>
+              <dd>Від двох до п’яти взаємовиключних варіантів: спосіб доставки, тариф, формат оплати. Якщо варіантів більше, зручніше випадаючий список.</dd>
+            </div>
+            <div>
+              <dt>Розмітка</dt>
+              <dd><code>&lt;input type="radio" name="…"&gt;</code>. Однакове значення <code>name</code> об’єднує кнопки в одну групу.</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="stage">
+          <fieldset class="group">
+            <legend>Спосіб доставки</legend>
+            <label class="choice">
+              <input type="radio" name="delivery" checked>
+              <span class="mark mark-radio"></span>
+              <span class="choice-text">Відділення пошти</span>
+              <span class="choice-meta">1–2 дні</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="delivery">
+              <span class="mark mark-radio"></span>
+              <span class="choice-text">Кур’єр</span>
+              <span class="choice-meta">наступного дня</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="delivery">
+              <span class="mark mark-radio"></span>
+              <span class="choice-text">Самовивіз</span>
+              <span class="choice-meta">сьогодні</span>
+            </label>
+          </fieldset>
+          
+          <output class="readout" id="radio-out"></output>
+        </div>
+      </section>
+
+      <!-- 2. Checkbox -->
+      <section class="entry" id="checkbox" aria-labelledby="checkbox-title">
+        <div class="entry-text">
+          <h2 id="checkbox-title">Checkbox<span class="ua">Прапорець</span></h2>
+          <p class="lede">Вмикає або вимикає окремий параметр незалежно від інших. Можна позначити кілька пунктів, жоден або всі одразу. Стан "частково" показує, що позначено лише частину вкладених пунктів.</p>
+          <dl class="facts">
+            <div>
+              <dt>Коли застосовувати</dt>
+              <dd>Список незалежних параметрів: налаштування сповіщень, згода з умовами, фільтри з множинним вибором.</dd>
+            </div>
+            <div>
+              <dt>Розмітка</dt>
+              <dd><code>&lt;input type="checkbox"&gt;</code>. Стан "частково" задається у JavaScript властивістю <code>indeterminate</code>.</dd>
+            </div>
+
+          </dl>
+        </div>
+
+        <div class="stage">
+          <fieldset class="group">
+            <legend>Сповіщення</legend>
+            <label class="choice choice-master">
+              <input type="checkbox" id="notify-all">
+              <span class="mark mark-check"></span>
+              <span class="choice-text">Усі канали</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="notify" checked>
+              <span class="mark mark-check"></span>
+              <span class="choice-text">Електронна пошта</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="notify" checked>
+              <span class="mark mark-check"></span>
+              <span class="choice-text">SMS</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="notify">
+              <span class="mark mark-check"></span>
+              <span class="choice-text">Push-сповіщення</span>
+            </label>
+          </fieldset>
+          <output class="readout" id="check-out"></output>
+        </div>
+      </section>
+
+      <!-- 3. Text input -->
+      <section class="entry" id="input" aria-labelledby="input-title">
+        <div class="entry-text">
+          <h2 id="input-title">Text input<span class="ua">Текстове поле</span></h2>
+          <p class="lede">Рядок, у який користувач вводить власний текст: ім’я, пошту, пошуковий запит. Це головний спосіб отримати дані, яких немає серед готових варіантів.</p>
+          <dl class="facts">
+            <div>
+              <dt>Коли застосовувати</dt>
+              <dd>Коли відповідь наперед невідома. Підкажіть формат і перевіряйте введене одразу, а не після відправлення форми.</dd>
+            </div>
+            <div>
+              <dt>Розмітка</dt>
+              <dd><code>&lt;input type="text"&gt;</code>, а також <code>email</code>, <code>password</code>, <code>number</code>. Для довгого тексту є <code>&lt;textarea&gt;</code>.</dd>
+            </div>
+          </dl>
+        </div>
+        
+        <div class="stage">
+          <div class="field">
+            <label for="email">Електронна пошта</label>
+            <input class="input" id="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" aria-describedby="email-hint">
+            <p class="hint" id="email-hint" aria-live="polite">Введіть адресу й вийдіть із поля: перевірка спрацює одразу.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 4. Tabs -->
+      <section class="entry" id="tabs" aria-labelledby="tabs-title">
+        <div class="entry-text">
+          <h2 id="tabs-title">Tabs<span class="ua">Вкладки</span></h2>
+          <p class="lede">Ділять контент на розділи, які перемикаються в одному й тому самому місці сторінки. Видно лише один розділ, але користувач одразу розуміє, що є й інші.</p>
+          <dl class="facts">
+            <div>
+              <dt>Коли застосовувати</dt>
+              <dd>Рівнозначні розділи одного об’єкта: опис, характеристики, відгуки. Для кроків, що йдуть строго по черзі, вкладки не підходять.</dd>
+            </div>
+            <div>
+              <dt>Розмітка</dt>
+              <dd>Ролі <code>tablist</code>, <code>tab</code> і <code>tabpanel</code>. Активна вкладка має <code>aria-selected="true"</code>.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="stage">
+          <div class="tabs">
+            <div role="tablist" aria-label="Про вкладки">
+              <button type="button" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">Призначення</button>
+              <button type="button" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">Приклад</button>
+              <button type="button" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">Клавіатура</button>
+            </div>
+
+            <div role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
+              <p>Вкладки заощаджують місце: замість однієї довгої сторінки є кілька коротких розділів, між якими легко перемикатися.</p>
+            </div>
+            <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
+              <p>Типовий приклад: картка товару з розділами "Опис", "Характеристики" та "Відгуки".</p>
+            </div>
+            <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
+              <p>Стрілки ← та → перемикають вкладки: достатньо навести на них курсор або перейти до них клавішею Tab. Home і End переходять до першої й останньої вкладки.</p>
+            </div>
+          </div>
+          <p class="inline-demo">Наведіть курсор на вкладки й керуйте стрілками ← та → без кліку, або перейдіть до них клавішею Tab.</p>
+        </div>
+
+      </section>
+
+      <!-- 5. Button -->
+      <section class="entry" id="button" aria-labelledby="button-title">
+        <div class="entry-text">
+          <h2 id="button-title">Button<span class="ua">Кнопка</span></h2>
+          <p class="lede">Запускає дію: зберегти, надіслати, видалити. Кнопка відповідає на питання "що станеться після натискання?", тому її підпис має бути дієсловом, а не загальним "ОК".</p>
+          <dl class="facts">
+            <div>
+              <dt>Коли застосовувати</dt>
+              <dd>Для дій на поточній сторінці. Головну дію виділяйте кольором, другорядні робіть спокійнішими. Якщо дія веде на іншу сторінку, потрібне посилання.</dd>
+            </div>
+            <div>
+              <dt>Розмітка</dt>
+              <dd><code>&lt;button type="button"&gt;</code>. У кнопки є стани: звичайний, наведення, фокус, натискання, завантаження та вимкнений.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="stage">
+          <div class="btn-row">
+            <button type="button" class="btn btn-primary" id="btn-save"><span class="spinner" aria-hidden="true"></span><span id="btn-save-text">Зберегти</span></button>
+            <button type="button" class="btn btn-secondary" id="btn-cancel">Скасувати</button>
+            <button type="button" class="btn btn-ghost" id="btn-clear">Очистити</button>
+            <button type="button" class="btn btn-secondary" disabled>Недоступно</button>
+          </div>
+          <output class="readout" id="btn-out"></output>
+        </div>
+      </section>
+
+      <!-- 6. Text label -->
+      <section class="entry" id="label" aria-labelledby="label-title">
+        <div class="entry-text">
+          <h2 id="label-title">Text label<span class="ua">Текстова мітка</span></h2>
+          <p class="lede">Підпис, який пояснює, що це за поле чи значення. Мітка, прив’язана до поля, збільшує область натискання, а скрінрідер озвучує назву поля. Поза формами мітками є також заголовки колонок і підписи до іконок.</p>
+          <dl class="facts">
+            <div>
+              <dt>Коли застосовувати</dt>
+              <dd>У кожного поля форми має бути видима мітка. Плейсхолдер її не замінює: він зникає, щойно людина починає друкувати.</dd>
+            </div>
+            <div>
+              <dt>Розмітка</dt>
+              <dd><code>&lt;label for="id"&gt;</code> разом із <code>&lt;input id="id"&gt;</code>. Зв’язок між ними встановлює саме <code>for</code>.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="stage">
+          <div class="compare">
+            <div class="field">
+              <label for="user">Ім’я користувача <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="user" type="text" required autocomplete="username" placeholder="Наприклад, olena_k">
+              <p class="hint">Прив’язана мітка: клік по тексту ставить курсор у поле.</p>
+            </div>
+            <div class="field">
+              <span class="fake-label" aria-hidden="true">Ім’я користувача</span>
+              <input class="input" type="text" aria-label="Ім’я користувача, приклад без прив’язки" placeholder="Наприклад, olena_k">
+              <p class="hint">Звичайний текст: клік по ньому нічого не робить.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Link -->
+      <section class="entry" id="link" aria-labelledby="link-title">
+        <div class="entry-text">
+          <h2 id="link-title">Link<span class="ua">Посилання</span></h2>
+          <p class="lede">Переносить користувача на іншу сторінку, у розділ чи до файлу. Посилання лежить в основі навігації в мережі: за ним переходять, а не виконують дію.</p>
+          <dl class="facts">
+            <div>
+              <dt>Коли застосовувати</dt>
+              <dd>Для переходів. Підпис має казати, куди веде посилання ("Умови доставки"), а не закликати "Натисніть тут".</dd>
+            </div>
+            <div>
+              <dt>Розмітка</dt>
+              <dd><code>&lt;a href="…"&gt;</code>. Без <code>href</code> це вже не посилання. Зовнішні сайти відкривайте з <code>rel="noopener noreferrer"</code>.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="stage">
+          <ul class="links">
+            <li>
+              <a href="#grid">Перейти до таблиці даних</a>
+              <span class="note">перехід усередині цієї сторінки</span>
+            </li>
+            <li>
+              <a href="https://github.com/MNJMARIA" target="_blank" rel="noopener noreferrer">Посилання на мій GitHub<span class="sr-only"> (відкривається в новій вкладці)</span></a>
+              <span class="note">зовнішній сайт, нова вкладка</span>
+            </li>
+          </ul>
+          <p class="inline-demo">Посилання в тексті, як-от <a href="#top">повернення на початок сторінки</a>, підкреслюють: так його видно навіть без кольору.</p>
+        </div>
+      </section>
+
+      <!-- 8. Tooltip -->
+      <section class="entry" id="tooltip" aria-labelledby="tooltip-title">
+        <div class="entry-text">
+          <h2 id="tooltip-title">Tooltip<span class="ua">Підказка</span></h2>
+          <p class="lede">Невелике спливне вікно з поясненням, яке з’являється при наведенні курсора або коли елемент отримує фокус. Воно доповнює інтерфейс і не займає місце постійно.</p>
+          <dl class="facts">
+            <div>
+              <dt>Коли застосовувати</dt>
+              <dd>Для коротких пояснень до незрозумілого терміна чи іконки без підпису. Важливу інформацію в підказці ховати не варто: на телефоні наведення немає.</dd>
+            </div>
+            <div>
+              <dt>Розмітка</dt>
+              <dd>Елемент із <code>role="tooltip"</code>, пов’язаний із викликачем через <code>aria-describedby</code>. Клавіша Esc закриває підказку.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="stage stage-tip">
+          <div class="tip-demo">
+            <span class="tip-wrap">
+              <button type="button" class="tip-trigger" aria-describedby="tip-cvv">CVV-код</button>
+              <span class="tip" role="tooltip" id="tip-cvv">Три цифри на звороті картки. Нікому їх не повідомляйте.</span>
+            </span>
+            <span class="tip-wrap tip-end">
+              <button type="button" class="icon-btn" id="copy-btn" aria-label="Копіювати адресу сторінки" aria-describedby="tip-copy">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+              </button>
+              <span class="tip" role="tooltip" id="tip-copy">Копіює адресу цієї сторінки в буфер обміну</span>
+            </span>
+          </div>
+          <p class="hint">Наведіть курсор або перейдіть до елементів клавішею Tab. Esc закриває підказку.</p>
+        </div>
+      </section>
+
+      <!-- 9. Dropdown list -->
+      <section class="entry" id="dropdown" aria-labelledby="dropdown-title">
+        <div class="entry-text">
+          <h2 id="dropdown-title">Dropdown list<span class="ua">Випадаючий список</span></h2>
+          <p class="lede">Згортає довгий перелік в одне поле: список розкривається лише за потреби. Користувач обирає один пункт, а решта варіантів не відволікає й не займає місця.</p>
+          <dl class="facts">
+            <div>
+              <dt>Коли застосовувати</dt>
+              <dd>Від п’яти варіантів, коли місця мало: країна, місто, рік народження. Для двох–п’яти варіантів краще радіокнопки, бо вони видимі одразу.</dd>
+            </div>
+            <div>
+              <dt>Розмітка</dt>
+              <dd><code>&lt;select&gt;</code> з пунктами <code>&lt;option&gt;</code>, групи задає <code>&lt;optgroup&gt;</code>. Вбудований елемент зручний на телефонах і з клавіатури.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="stage">
+          <div class="field">
+            <label for="course">Напрям навчання</label>
+            <select class="input select" id="course">
+              <option value="" selected disabled>Оберіть напрям</option>
+              <option>UI/UX дизайн</option>
+              <option>Frontend-розробка</option>
+              <option>Тестування ПЗ</option>
+              <option>Аналітика даних</option>
+            </select>
+          </div>
+          <output class="readout" id="select-out"></output>
+        </div>
+      </section>
+
+      <!-- 10. Data grid -->
+      <section class="entry entry-wide" id="grid" aria-labelledby="grid-title">
+        <div class="entry-text">
+          <h2 id="grid-title">Data grid<span class="ua">Таблиця даних</span></h2>
+          <p class="lede">Показує впорядковані дані у рядках і стовпцях, щоб їх було легко порівнювати. Користувач може сортувати стовпці й відфільтровувати рядки, не перезавантажуючи сторінку.</p>
+          <dl class="facts facts-row">
+            <div>
+              <dt>Коли застосовувати</dt>
+              <dd>Списки однотипних записів: замовлення, користувачі, платежі. Для кількох значень вистачить звичайного списку.</dd>
+            </div>
+            <div>
+              <dt>Розмітка</dt>
+              <dd><code>&lt;table&gt;</code> з <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> і <code>&lt;th scope="col"&gt;</code>. Напрям сортування вказує <code>aria-sort</code>.</dd>
+            </div>
+          </dl>
+        </div>
+        
+        <div class="stage">
+          <div class="grid-tools">
+            <div class="field grid-filter">
+              <label for="grid-filter">Фільтр</label>
+              <input class="input" id="grid-filter" type="search" autocomplete="off" placeholder="Наприклад, input або вибір">
+            </div>
+            <output class="readout" id="grid-count"></output>
+          </div>
+          <div class="grid-wrap" role="region" aria-label="Таблиця елементів інтерфейсу" tabindex="0">
+            <table>
+              <caption class="sr-only">Десять елементів інтерфейсу з HTML-тегами, діями користувача та складністю реалізації. Заголовки стовпців можна натискати для сортування.</caption>
+              <thead>
+                <tr>
+                  <th scope="col" aria-sort="none"><button type="button" class="sort" data-key="name">Елемент<span class="sort-mark" aria-hidden="true"></span></button></th>
+                  <th scope="col" aria-sort="none"><button type="button" class="sort" data-key="tag">HTML<span class="sort-mark" aria-hidden="true"></span></button></th>
+                  <th scope="col" aria-sort="none"><button type="button" class="sort" data-key="action">Дія користувача<span class="sort-mark" aria-hidden="true"></span></button></th>
+                  <th scope="col" aria-sort="none"><button type="button" class="sort" data-key="level">Складність<span class="sort-mark" aria-hidden="true"></span></button></th>
+                </tr>
+              </thead>
+              <tbody id="grid-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <p>Лабораторна робота 2 з курсу QC Fundamentals</p>
+        <p>Виконала: <strong>Марія Степанова</strong></p>
+        <p><a href="../index.html" data-labs-link>Усі лабораторні роботи</a></p>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>
